@@ -1,15 +1,16 @@
 import React from 'react'
-import { Navbar } from '../components/Navbar'
 import { Outlet } from 'react-router-dom'
-import { CardHome } from '../pages/home/CardHome'
-import Home from '../pages/home/Home'
+import { Header } from './components/Header'
+import { Footer } from './components/Footer'
 
 export const Layout = () => {
     return (
-        <div>
-            <Outlet />
-            <Navbar />
-            <CardHome />
+        <div className='flex flex-col min-h-screen'>
+            <Header />
+            <div className='flex-grow w-full'>
+                <Outlet />
+            </div>
+            {/* <Footer /> */}
         </div>
     )
 }

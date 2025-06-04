@@ -18,7 +18,48 @@
         font-family: var(--font-poppins);
     }
 }
-.container{
+
+.container {
     width: 1170px;
     margin: 0 auto;
+}
+
+.active {
+    color: rgb(130, 121, 121);
+}
+
+.active:hover {
+    text-decoration: underline;
+}
+
+.active:focus {
+    text-decoration: underline;
+}
+
+
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    font-size: 0;
+    border: rgb(71, 69, 69) 2px solid;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: red !important;
+    border: black 2px solid;
+}
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    font-size: 0;
+    border: white 2PX solid;
+    background-color: #f1e9e9 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: red !important;
+    border: white 2px solid;
+    /* background: green !important; */
 }
