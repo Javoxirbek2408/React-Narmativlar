@@ -6,7 +6,7 @@ export const CurrentButton = ({
   className,
   color,
   variant,
-  ref
+  ref,
 }) => {
   return (
     <Button
@@ -15,7 +15,7 @@ export const CurrentButton = ({
       color={color}
       variant={variant}
       ref={ref}
-    > 
+    >
       {title}
     </Button>
   );

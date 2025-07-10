@@ -39,6 +39,8 @@ export const BestProduct = () => {
               oldPrice={item.oldPrice}
               reyting={item.reyting}
               store={item.store}
+              colorOne={item.colorOne}
+              colorTwo={item.colorTwo}
             />
           );
         })}
