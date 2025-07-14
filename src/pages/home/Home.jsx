@@ -1,15 +1,14 @@
 import { FlashSales } from "./components/Flasshsales";
 import { CardHome } from "./components/HomeCard";
-import { products } from "../../data/data";
 import { CurrentButton } from "../../components/CurrentButton/CurrentButton";
 import { BestProduct } from "./components/BestProducts/BestProduct";
 import { BrowseByCategory } from "../../components/BrowseByCategory";
 import { JblBanner } from "./components/JBLbanner/JblBanner";
 import { ExploreOur } from "./components/ExploreOur/ExploreOur";
+import { NewArrival } from "./components/NewArrival/NewArrival";
+import { EmdHome } from "./components/EndHome/EmdHome";
 
 const Home = () => {
-  console.log(products[15].discaunt);
-
   return (
     <div className="flex flex-col gap-5">
       <CardHome />
@@ -25,6 +24,8 @@ const Home = () => {
       <BestProduct />
       <JblBanner />
       <ExploreOur />
+      <NewArrival />
+      <EmdHome />
     </div>
   );
 };

@@ -7,9 +7,11 @@ export const CurrentButton = ({
   color,
   variant,
   ref,
+  onClick
 }) => {
   return (
     <Button
+    onClick={onClick}
       icon={icon}
       className={className}
       color={color}
