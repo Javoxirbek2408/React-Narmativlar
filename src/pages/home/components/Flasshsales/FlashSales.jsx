@@ -142,6 +142,7 @@ export const FlashSales = () => {
                   store={item.store}
                   colorOne={item.colorOne}
                   colorTwo={item.colorTwo}
+                  item={item}
                 />
               );
             })}

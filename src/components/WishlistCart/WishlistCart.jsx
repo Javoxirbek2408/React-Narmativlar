@@ -1,21 +1,16 @@
 import { Image, Rate } from "antd";
 import { CurrentButton } from "../CurrentButton/CurrentButton";
-import { Eye, Heart, ShoppingCart } from "lucide-react";
+import { Eye, Heart, ShoppingCart, Trash } from "lucide-react";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-export const ProductCart = ({
+export const WishlistCart = ({
   className,
   discount,
   title,
   neWPrice,
-  oldPrice,
   img,
-  reyting,
-  store,
   isNew,
-  colorOne,
-  colorTwo,
 }) => {
   const [isInWishlist, setIsInWishlist] = useState(false);
 
@@ -36,19 +31,6 @@ export const ProductCart = ({
       toast.info("Mahsulot wishlistdan olib tashlandi!");
       setIsInWishlist(false);
     } else {
-      const product = {
-        className,
-        discount,
-        title,
-        neWPrice,
-        oldPrice,
-        img,
-        reyting,
-        store,
-        isNew,
-        colorOne,
-        colorTwo,
-      };
       wishlist.push(product);
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
       toast.success("Mahsulot wishlistga qo‘shildi!");
@@ -72,52 +54,25 @@ export const ProductCart = ({
 
         <Image className="!w-[270px] !h-[200px] p-6" src={img} />
         <div className="flex flex-col gap-2 absolute top-2 left-[230px]">
-        {location.pathname !=='wishlist' ?  null:   <CurrentButton
-            onClick={toggleWishlist}
-            className="!rounded-full"
-            icon={<Heart fill={isInWishlist ? "red" : "none"} />}
-          />}
-
           <CurrentButton
-            className={`!rounded-full transition ${"bg-white text-black"}`}
-            icon={<Eye className="pt-1" />}
+            className="!rounded-full"
+            onClick={toggleWishlist}
+            icon={<Trash />}
           />
         </div>
       </div>
 
-      {location.pathname !== "wisshlist" ? (
-        <CurrentButton
-          className="w-full !bg-black !text-white border font-medium text-base"
-          icon={<ShoppingCart />}
-          title="Add to Cart"
-        />
-      ) : (
-        <CurrentButton
-          className="w-full !bg-black !text-white border font-medium text-base"
-          title="Add to Cart"
-        />
-      )}
+      <CurrentButton
+        className="w-full !bg-black !text-white border font-medium text-base"
+        icon={<ShoppingCart />}
+        title="Add to Cart"
+      />
 
       <h1 className="font-medium text-base mt-2">{title}</h1>
       <div className="flex mt-2 gap-2">
         <span className="font-medium text-base text-[#DB4444]">
-          ${neWPrice}
+          ${String(neWPrice)}
         </span>
-        {oldPrice && (
-          <span className="font-medium text-base line-through text-gray-400">
-            ${oldPrice}
-          </span>
-        )}
-      </div>
-
-      <div className="flex gap-3 mt-2 items-center">
-        <Rate disabled defaultValue={reyting} />
-        <span className="text-sm text-gray-400">({store})</span>
-      </div>
-
-      <div className="flex gap-2 mt-3 items-center">
-        {colorOne ? <img src={colorOne} alt="color1" /> : null}
-        {colorTwo ? <img src={colorTwo} alt="color1" /> : null}
       </div>
     </div>
   );

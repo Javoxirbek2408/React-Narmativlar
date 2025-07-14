@@ -3,6 +3,7 @@ import { Contact } from "./pages/Contact";
 import Home from "./pages/home/Home";
 import { Login } from "./pages/SignUp/Login";
 import { SingUp } from "./pages/SignUp/SingUp";
+import { Wishlist } from "./pages/Wishlist";
 
 export const routes = [
   {
@@ -34,5 +35,11 @@ export const routes = [
     name: "Login", // homega path shart emas
     component: Login,
     path: "/login",
+  },
+  {
+    id: 6, // har bir obyektga alohida id quyib beradi
+    name: "Wishlist", // homega path shart emas
+    component: Wishlist,
+    path: "/wishlist",
   },
 ];

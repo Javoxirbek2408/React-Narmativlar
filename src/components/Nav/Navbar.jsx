@@ -1,12 +1,22 @@
-import { Heart, LucideShoppingCart, ShoppingCart, User } from "lucide-react";
-import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Heart, LucideShoppingCart } from "lucide-react";
+import React, { useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { Menus } from "../menu/Menu";
 
 export const Navbar = () => {
   const location = useLocation();
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
+
+  const [open, setOpen] = useState(false);
+  const hide = () => {
+    setOpen(false);
+  };
+  const handleOpenChange = (newOpen) => {
+    setOpen(newOpen);
+  };
+
   return (
     <div>
       <nav className="container flex items-center pt-12 justify-between ">
@@ -81,9 +91,11 @@ export const Navbar = () => {
           {location.pathname !== "/singup" &&
             location.pathname !== "/login" && (
               <div className="flex items-center cursor-pointer gap-4">
+                <Link to='/wishlist'>
                 <Heart />
+                </Link>
                 <LucideShoppingCart />
-                
+                <Menus />
               </div>
             )}
         </div>

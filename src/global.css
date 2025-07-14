@@ -67,3 +67,7 @@
   height: 350px;
   gap: 16px;
 }
+
+.ant-dropdown .ant-space-item {
+  backdrop-filter: blur(black) !important;
+}
