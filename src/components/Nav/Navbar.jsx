@@ -2,6 +2,7 @@ import { Heart, LucideShoppingCart } from "lucide-react";
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menus } from "../menu/Menu";
+import { Wishlist } from "../../pages/Wishlist/Wishlist";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -92,9 +93,9 @@ export const Navbar = () => {
             location.pathname !== "/login" && (
               <div className="flex items-center cursor-pointer gap-4">
                 <Link to='/wishlist'>
-                <Heart />
+                <Heart /> 
                 </Link>
-                <LucideShoppingCart />
+             <Link to={'/cartpage'}>   <LucideShoppingCart /></Link>
                 <Menus />
               </div>
             )}

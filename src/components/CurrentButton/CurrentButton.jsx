@@ -6,17 +6,15 @@ export const CurrentButton = ({
   className,
   color,
   variant,
-  ref,
-  onClick
+  onClick,
 }) => {
   return (
     <Button
-    onClick={onClick}
+      onClick={onClick}
       icon={icon}
       className={className}
       color={color}
       variant={variant}
-      ref={ref}
     >
       {title}
     </Button>
