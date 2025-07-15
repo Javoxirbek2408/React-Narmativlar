@@ -25,12 +25,14 @@
   color: rgb(130, 121, 121);
 }
 
-.active:hover {
-  text-decoration: underline;
+
+.activLink:hover {
+  color: black;
 }
 
 .active:focus {
   text-decoration: underline;
+  color: black;
 }
 
 .swiper-pagination-bullet {

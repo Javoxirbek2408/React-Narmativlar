@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CurrentButton } from "../../components/CurrentButton/CurrentButton";
 import { TrashIcon } from "lucide-react";
 import { Form } from "antd";
@@ -97,13 +97,15 @@ export const CartPage = () => {
               <p>$1750</p>
             </div>
           </div>
-          <CurrentButton
-            type="submit"
-            className={
-              "w-[260px] mt-4 ml-28 !h-[56px] mb-6 !text-white !bg-[#DB4444]"
-            }
-            title={"Procees to checkout"}
-          />
+          <Link to={"/checkout"}>
+            <CurrentButton
+              type="submit"
+              className={
+                "w-[260px] mt-4 ml-28 !h-[56px] mb-6 !text-white !bg-[#DB4444]"
+              }
+              title={"Procees to checkout"}
+            />
+          </Link>
         </div>
       </div>
     </div>
