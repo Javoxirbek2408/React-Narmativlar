@@ -72,3 +72,8 @@
 .ant-dropdown .ant-space-item {
   backdrop-filter: blur(black) !important;
 }
+
+
+.swiper-pagination-bullet{
+  background: black  !important;
+}

@@ -3,6 +3,8 @@ import { FreeEnd } from "../../../../assets/icon/FreeEnd";
 import { CurrentButton } from "../../../../components/CurrentButton/CurrentButton";
 import { ArrowUp, Eye } from "lucide-react";
 import { Input } from "antd";
+import { CustomerService } from "../../../../assets/icon/CustomerService";
+import { MoneyBack } from "../../../../assets/icon/MoneyBack";
 
 export const EmdHome = () => {
   const [topUp, setTopUp] = useState(false);
@@ -32,21 +34,21 @@ export const EmdHome = () => {
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <FreeEnd />
+          <CustomerService />
           <h3 className=" font-semibold text-xl mt-6 leading-7">
-            FREE AND FAST DELIVERY
+            24/7 CUSTOMER SERVICE
           </h3>
           <p className="font-normal text-sm leading-[21px] mt-2 tracking-[0%] text-center">
-            Free delivery for all orders over $140
+            Friendly 24/7 customer support
           </p>
         </div>
         <div className="flex flex-col items-center">
-          <FreeEnd />
+          <MoneyBack />
           <h3 className=" font-semibold text-xl mt-6 leading-7">
-            FREE AND FAST DELIVERY
+            MONEY BACK GUARANTEE{" "}
           </h3>
           <p className="font-normal text-sm leading-[21px] mt-2 tracking-[0%] text-center">
-            Free delivery for all orders over $140
+            We reurn money within 30 days{" "}
           </p>
         </div>
       </div>
