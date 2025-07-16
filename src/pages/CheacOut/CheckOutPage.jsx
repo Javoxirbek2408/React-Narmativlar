@@ -3,8 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { products } from "../../data/data";
 import { CurrentButton } from "../../components/CurrentButton/CurrentButton";
-import { Form } from "antd";
-
+import { Form, Input, Radio } from "antd";
+import { PlastekCart } from "../../assets/icon/PlastekCart";
+const style = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 8,
+};
 export const CheckOutPage = () => {
   const [cartpage, setCartpr] = useState([]);
   useEffect(() => {
@@ -12,6 +17,11 @@ export const CheckOutPage = () => {
 
     setCartpr(cart);
   }, []);
+
+  const [value, setValue] = useState(1);
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className="container !mt-[80px] !mb-[140px]">
@@ -190,7 +200,18 @@ export const CheckOutPage = () => {
                       <p>$1750</p>
                     </div>
                   </div>
-
+                  <div className="flex justify-between mt-8">
+                    <Radio.Group
+                      style={style}
+                      onChange={onChange}
+                      value={value}
+                      options={[
+                        { value: 1, label: "Bank" },
+                        { value: 2, label: "Cash on delivery" },
+                      ]}
+                    />
+                    <PlastekCart className="flex items-center gap-2 pb-6" />
+                  </div>
                   <Form className=" flex !mt-8 ju items-center gap-4">
                     <Form.Item htmlFor="submit">
                       <input

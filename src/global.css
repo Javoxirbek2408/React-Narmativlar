@@ -31,8 +31,7 @@
 }
 
 .active:focus {
-  text-decoration: underline;
-  color: black;
+  color: red;
 }
 
 .swiper-pagination-bullet {
