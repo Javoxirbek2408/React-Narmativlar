@@ -17,13 +17,19 @@ export const CheckOutPage = () => {
     <div className="container !mt-[80px] !mb-[140px]">
       <ul className="flex gap-2 ">
         <li>
-          <NavLink className={" font-normal text-sm leading-[21px]"}>
+          <NavLink
+            to={"/account"}
+            className={" font-normal text-sm leading-[21px]"}
+          >
             Account
           </NavLink>
         </li>
         <Slash className="w-[13px] text-gray-500" />
         <li>
-          <NavLink className={" activLink font-normal text-sm leading-[21px]"}>
+          <NavLink
+            to={"/"}
+            className={" activLink font-normal text-sm leading-[21px]"}
+          >
             My Account
           </NavLink>
         </li>

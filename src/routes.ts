@@ -1,4 +1,5 @@
 import { About } from "./pages/About";
+import { Account } from "./pages/Account/Account";
 import { CartPage } from "./pages/Cart/CartPage";
 import { CheckOutPage } from "./pages/CheacOut";
 import { Contact } from "./pages/Contact";
@@ -55,5 +56,11 @@ export const routes = [
     name: "CheckOut", // homega path shart emas
     component: CheckOutPage,
     path: "/checkout",
+  },
+  {
+    id: 9, // har bir obyektga alohida id quyib beradi
+    name: "Account", // homega path shart emas
+    component: Account,
+    path: "/account",
   },
 ];
