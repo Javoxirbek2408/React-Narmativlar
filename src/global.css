@@ -25,7 +25,6 @@
   color: rgb(130, 121, 121);
 }
 
-
 .activLink:hover {
   color: black;
 }
@@ -73,7 +72,15 @@
   backdrop-filter: blur(black) !important;
 }
 
-
-.swiper-pagination-bullet{
-  background: black  !important;
+.swiper-pagination-bullet {
+  background: black !important;
+}
+.mySwiper3 {
+  width: 300px !important;
+ 
+  height: 300px !important;
+}
+.swipShp .swiper-horizontal{
+display: flex !important;
+flex-direction: column !;
 }

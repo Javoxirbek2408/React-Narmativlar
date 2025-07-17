@@ -10,6 +10,7 @@ import {
   User2,
   User2Icon,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 const items = [
   {
     label: "Manage My Account",
@@ -20,6 +21,7 @@ const items = [
     label: "My Order",
     key: "SubMenu",
     icon: <ShoppingBag />,
+    Link: "./productdetailspage",
   },
   {
     label: "My Cancellations",
@@ -39,11 +41,6 @@ const items = [
 ];
 
 export const Menus = () => {
-  // const [current, setCurrent] = useState("mail");
-  // const onClick = (e) => {
-  //   console.log("click ", e);
-  //   setCurrent(e.key);
-  // };
   return (
     <Dropdown placement="bottomRight" menu={{ items }}>
       <a onClick={(e) => e.preventDefault()}>

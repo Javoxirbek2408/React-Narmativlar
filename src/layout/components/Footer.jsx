@@ -68,7 +68,12 @@ export const Footer = () => {
                 <Link className="font-normal text-base leading-6">
                   Wishlist
                 </Link>
-                <Link className="font-normal text-base leading-6">Shop</Link>
+                <Link
+                  className="font-normal text-base leading-6"
+                  to={"/productdetailspage"}
+                >
+                  Shop
+                </Link>
               </div>
             </div>
 

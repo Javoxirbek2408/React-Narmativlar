@@ -4,6 +4,7 @@ import { CartPage } from "./pages/Cart/CartPage";
 import { CheckOutPage } from "./pages/CheacOut";
 import { Contact } from "./pages/Contact";
 import Home from "./pages/home/Home";
+import { Product_Details_page } from "./pages/Product Details page/Product_Details_page";
 import { Login } from "./pages/SignUp/Login";
 import { SingUp } from "./pages/SignUp/SingUp";
 import { Wishlist } from "./pages/Wishlist";
@@ -62,5 +63,11 @@ export const routes = [
     name: "Account", // homega path shart emas
     component: Account,
     path: "/account",
+  },
+  {
+    id: 10, // har bir obyektga alohida id quyib beradi
+    name: "Product Details page", // homega path shart emas
+    component: Product_Details_page,
+    path: "/productdetailspage",
   },
 ];
