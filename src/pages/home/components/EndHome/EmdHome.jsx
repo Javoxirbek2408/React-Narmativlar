@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { FreeEnd } from "../../../../assets/icon/FreeEnd";
 import { CurrentButton } from "../../../../components/CurrentButton/CurrentButton";
-import { ArrowUp, Eye } from "lucide-react";
-import { Input } from "antd";
+import { ArrowUp } from "lucide-react";
 import { CustomerService } from "../../../../assets/icon/CustomerService";
 import { MoneyBack } from "../../../../assets/icon/MoneyBack";
 
