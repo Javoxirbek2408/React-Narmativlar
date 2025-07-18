@@ -1,0 +1,9 @@
+.swipShp:nth-last-child {
+    display: flex !important;
+    flex-direction: column !important;
+}
+.columnssw {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* elementlar orasidagi bo‘shliq */
+}

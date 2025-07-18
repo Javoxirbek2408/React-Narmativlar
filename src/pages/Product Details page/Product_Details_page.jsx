@@ -11,7 +11,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Minus, Plus, Heart } from "lucide-react";
-
+import "./product.css";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Button, Card, Rate } from "antd";
 import { IsusiIcon } from "../../assets/icon/Isusi";
@@ -59,19 +59,21 @@ export const Product_Details_page = () => {
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper  !w-[300px]  !flex !flex-col  !h-[300px]"
           >
-            <SwiperSlide className="!!w-[70px] !h-[138px]">
-              <img src={sowpl1} />
-            </SwiperSlide>
-            <br />
-            <SwiperSlide>
-              <img src={sowpl2} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={sowpl3} />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={sowpl4} />
-            </SwiperSlide>
+            <div className="!flex !flex-col  !gap-2">
+              <SwiperSlide className="!!w-[70px] !h-[38px]">
+                <img src={sowpl1} />
+              </SwiperSlide>
+              <br />
+              <SwiperSlide>
+                <img src={sowpl2} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={sowpl3} />
+              </SwiperSlide>
+              <SwiperSlide>
+                <img src={sowpl4} />
+              </SwiperSlide>
+            </div>
           </Swiper>
           <Swiper
             style={{
