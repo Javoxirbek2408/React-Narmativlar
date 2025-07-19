@@ -19,8 +19,30 @@ import { RestartIcon } from "../../assets/icon/Restart";
 import { ProductCart } from "../../components/ProductCart/ProductCarts";
 import { RedDivv } from "../../assets/icon/RedDiv";
 import { products } from "../../data/data";
+
 export const Product_Details_page = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+const [selectedSize, setSelectedSize] = useState("M");
+
+  const handleBuyNow = () => {
+    const productInfo = {
+      name: "Havic HV G-92 Gamepad",
+      price: 192,
+      color: selectedColor,
+      quantity: quantity,
+    };
+
+    if (!selectedColor) {
+      alert("Please select a color.");
+      return;
+    }
+
+    console.log("🛍️ Product added to cart:", productInfo);
+    // Bu yerga API yoki localStorage qo‘shilsa bo‘ladi
+  };
+
   return (
     <div className="container !mt-[80px] !mb-[140px]">
       <ul className="flex gap-2 ">
@@ -38,17 +60,19 @@ export const Product_Details_page = () => {
             to={"/"}
             className={" activLink font-normal text-sm leading-[21px]"}
           >
-            Gaming{" "}
+            Gaming
           </NavLink>
         </li>
-        <Slash className="w-[13px] text-gray-500" />{" "}
+        <Slash className="w-[13px] text-gray-500" />
         <li>
           <NavLink className={" activLink font-normal text-sm leading-[21px]"}>
             Havic HV G-92 Gamepad
           </NavLink>
         </li>
       </ul>
+
       <div className="flex !mt-[80px] justify-between items-center">
+        {/* Swiper images */}
         <div className="!flex swipShp">
           <Swiper
             onSwiper={setThumbsSwiper}
@@ -75,13 +99,13 @@ export const Product_Details_page = () => {
               </SwiperSlide>
             </div>
           </Swiper>
+
           <Swiper
             style={{
               "--swiper-navigation-color": "#fff",
               "--swiper-pagination-color": "#fff",
             }}
             spaceBetween={10}
-            // navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
             modules={[FreeMode, Navigation, Thumbs]}
             className="mySwiper3  w-[300px]  !h-[300px]"
@@ -100,6 +124,8 @@ export const Product_Details_page = () => {
             </SwiperSlide>
           </Swiper>
         </div>
+
+        {/* Product Info */}
         <div>
           <Card className="max-w-sm mx-auto p-4 space-y-4">
             <div className="space-y-3">
@@ -123,53 +149,91 @@ export const Product_Details_page = () => {
                 removal. Pressure sensitive.
               </p>
 
+              {/* Color select */}
               <div className="flex gap-4">
                 <p className="font-semibold mb-1">Colours:</p>
                 <div className="flex space-x-2">
-                  <span className="w-5 h-5 rounded-full bg-gray-300  border-2 border-black"></span>
-                  <span className="w-5 h-5 rounded-full bg-red-400 border-2 border-black"></span>
-                </div>
-              </div>
-              <hr />
-              <div className="flex gap-4 items-center">
-                <p className="font-semibold mb-1">Size:</p>
-                <div className="flex space-x-2">
-                  {["XS", "S", "M", "L", "XL"].map((size) => (
-                    <Button
-                      key={size}
-                      className={`px-3 py-1 border rounded ${
-                        size === "M" ? "!bg-red-500 !text-white" : "!bg-white"
+                  {[
+                    { color: "gray-300", value: "Gray" },
+                    { color: "red-400", value: "Red" },
+                  ].map((c) => (
+                    <span
+                      key={c.value}
+                      className={`w-5 h-5 rounded-full bg-${
+                        c.color
+                      } border-2 cursor-pointer ${
+                        selectedColor === c.value
+                          ? "border-black"
+                          : "border-transparent"
                       }`}
-                    >
-                      {size}
-                    </Button>
+                      onClick={() => {
+                        setSelectedColor(c.value);
+                        console.log("Selected color:", c.value);
+                      }}
+                    ></span>
                   ))}
                 </div>
               </div>
 
+              <hr />
+
+              {/* Size select */}
+              <div className="flex gap-4 items-center">
+                <p className="font-semibold mb-1">Size:</p>
+                <div className="flex space-x-2">
+               {["XS", "S", "M", "L", "XL"].map((size) => (
+  <Button
+    key={size}
+    onClick={() => setSelectedSize(size)}
+    className={`px-3 py-1 border rounded ${
+      selectedSize === size
+        ? "!bg-red-500 !text-white"
+        : "!bg-white !text-black"
+    }`}
+  >
+    {size}
+  </Button>
+))}
+
+                </div>
+              </div>
+
+              {/* Quantity + Buy Now */}
               <div className="flex items-center space-x-2">
                 <div className="border-1 flex items-center gap-2">
-                  {" "}
                   <Button
                     className="!rounded-none"
                     variant="outline"
                     size="icon"
+                    onClick={() => {
+                      if (quantity > 1) setQuantity(quantity - 1);
+                    }}
                   >
                     <Minus size={16} />
                   </Button>
-                  <span className="px-4">2</span>
-                  <Button className="!rounded-none !bg-red-600" size="icon">
+                  <span className="px-4">{quantity}</span>
+                  <Button
+                    className="!rounded-none !bg-red-600"
+                    size="icon"
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
                     <Plus color="white" size={16} />
                   </Button>
                 </div>
-                <Button className="!bg-red-500 !text-white ml-2">
+
+                <Button
+                  className="!bg-red-500 !text-white ml-2"
+                  onClick={handleBuyNow}
+                >
                   Buy Now
                 </Button>
+
                 <Button variant="outline" size="icon">
                   <Heart size={16} />
                 </Button>
               </div>
 
+              {/* Delivery Info */}
               <div className="border-2 !mt-[40px] !p-4 space-y-3 text-sm">
                 <div className="flex items-start space-x-2">
                   <IsusiIcon />
@@ -196,22 +260,22 @@ export const Product_Details_page = () => {
           </Card>
         </div>
       </div>
+
+      {/* Related Products */}
       <div className="mt-[140px]">
         <div>
-          <div>
-            <span className="flex items-center !gap-4">
-              <RedDivv />
-              <h4 className="!text-[#DB4444] font-normal !text-xl leading-[26px] tracking-[0%] text-center">
-                Related Item
-              </h4>
-            </span>
-          </div>
+          <span className="flex items-center !gap-4">
+            <RedDivv />
+            <h4 className="!text-[#DB4444] font-normal !text-xl leading-[26px] tracking-[0%] text-center">
+              Related Item
+            </h4>
+          </span>
         </div>
         <div className="flex mt-[60px] gap-8">
           {products?.slice(0, 4).map((item) => {
             return (
               <ProductCart
-                className="!w-[270px] !h-[350px] flex-shrink-0 "
+                className="!w-[270px] !h-[350px] flex-shrink-0"
                 key={item.id}
                 discount={item.discaunt}
                 img={item.image}
