@@ -208,7 +208,8 @@ const [selectedSize, setSelectedSize] = useState("M");
                     onClick={() => {
                       if (quantity > 1) setQuantity(quantity - 1);
                     }}
-                  >
+                  > 
+                  
                     <Minus size={16} />
                   </Button>
                   <span className="px-4">{quantity}</span>
